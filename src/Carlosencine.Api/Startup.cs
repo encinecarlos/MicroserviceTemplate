@@ -1,3 +1,4 @@
+using Carlosencine.Api.Extensions;
 using Carlosencine.Crosscutting.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,9 +31,10 @@ namespace Carlosencine.Api
 
             services.AddControllers();
             services.AddMediator();
+            services.AddVersioningConfig();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carlosencine.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroServices Api", Version = "v1" });
             });
         }
 
@@ -49,6 +51,8 @@ namespace Carlosencine.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseApiVersioning();
 
             app.UseAuthorization();
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Carlosencine.Api.Controllers.V1
 {
-    [Route("v1/[controller]")]
+    [Route("v{version:apiVersion}/[controller]")]
     [ApiController]
     public class HelloController : ControllerBase
     {
@@ -41,7 +41,7 @@ namespace Carlosencine.Api.Controllers.V1
         [ProducesResponseType(typeof(HelloResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public async Task<ActionResult> GetHello([FromBody] HelloRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetHello([FromBody] HelloRequest request, CancellationToken cancellationToken)
         {
             var response = await Mediator.Send(request, cancellationToken);
 
