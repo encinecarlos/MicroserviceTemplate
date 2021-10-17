@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Carlosencine.Application\Carlosencine.Application.csproj" />
+    <ProjectReference Include="..\Carlosencine.Infrastructure\Carlosencine.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,4 @@
+using Carlosencine.Crosscutting.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace Carlosencine.Api
         {
 
             services.AddControllers();
+            services.AddMediator();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carlosencine.Api", Version = "v1" });
